@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
 @Component({
     components: {},
@@ -48,7 +48,8 @@ export default class Header extends Vue {
 @import "@/assets/utils.scss";
 
 .index {
-    border-bottom: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid #dbdbdb;
+
     .container {
         max-width: 1080px;
         height: 80px;

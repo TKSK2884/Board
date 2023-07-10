@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import axios from "axios";
 import { api } from "@/api/api";
 
 @Component({

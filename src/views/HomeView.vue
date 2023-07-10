@@ -19,7 +19,7 @@
                     ><div :class="$style.link">이벤트 게시판</div></router-link
                 >
             </div>
-            <div v-if="getMYInfoAvailabe()" :class="$style.userSection">
+            <div v-if="getUserInfoAvailabe()" :class="$style.userSection">
                 <div :class="$style.box">
                     <div :class="$style.title">유저 정보</div>
                     <div :class="$style.user">
@@ -42,17 +42,14 @@ import { api } from "@/api/api";
 import { UserInfo } from "@/structure/types";
 import axios from "axios";
 import { Component, Vue, Watch } from "vue-property-decorator";
-// import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 @Component({
-    components: {
-        // HelloWorld,
-    },
+    components: {},
 })
 export default class HomeView extends Vue {
     loggedUserInfo?: UserInfo;
 
-    getMYInfoAvailabe(): boolean {
+    getUserInfoAvailabe(): boolean {
         return this.loggedUserInfo != null;
     }
 
@@ -72,8 +69,8 @@ export default class HomeView extends Vue {
                 {},
                 this // is context
             )
-                .catch(this.myInfoError)
-                .then(this.myInfoSuccess);
+                .catch(this.userInfoLoadError)
+                .then(this.userInfoLoadSuccess);
         }
     }
 
@@ -85,7 +82,7 @@ export default class HomeView extends Vue {
         }
     }
 
-    myInfoError(err: any) {
+    userInfoLoadError(err: any) {
         let errorCode = err.response.data.errorCode;
 
         if (errorCode == 500) {
@@ -96,7 +93,7 @@ export default class HomeView extends Vue {
         alert("정보 가져오기 오류가 발생했습니다.");
     }
 
-    myInfoSuccess(res: any) {
+    userInfoLoadSuccess(res: any) {
         if (res == null) return;
 
         this.loggedUserInfo = res.data;
@@ -119,6 +116,7 @@ export default class HomeView extends Vue {
 
 <style lang="scss" module>
 @import "@/assets/utils.scss";
+
 .index {
     .container {
         max-width: 1080px;
@@ -148,6 +146,7 @@ export default class HomeView extends Vue {
                 margin-right: 20px;
             }
         }
+
         .userSection {
             max-width: 320px;
 

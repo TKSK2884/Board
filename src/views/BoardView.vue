@@ -47,15 +47,11 @@
 
 <script lang="ts">
 import { Post } from "@/structure/types";
-import axios from "axios";
 import { Component, Vue } from "vue-property-decorator";
 import { api } from "@/api/api";
-// import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 @Component({
-    components: {
-        // HelloWorld,
-    },
+    components: {},
 })
 export default class BoardView extends Vue {
     contentsArray: Post[] = [];
@@ -103,7 +99,7 @@ export default class BoardView extends Vue {
 
         this.totalCount = res.data.total;
         this.contentsArray = res.data.array;
-        console.log(res.data.array);
+
         return;
     }
 
@@ -162,6 +158,7 @@ export default class BoardView extends Vue {
 
 <style lang="scss" module>
 @import "@/assets/utils.scss";
+
 .index {
     .container {
         max-width: 1080px;
@@ -176,6 +173,7 @@ export default class BoardView extends Vue {
 
                 text-align: center;
             }
+
             .coverLink {
                 max-width: 80px;
 
@@ -215,6 +213,7 @@ export default class BoardView extends Vue {
                     }
                 }
             }
+
             .pageBox {
                 display: flex;
                 justify-content: center;

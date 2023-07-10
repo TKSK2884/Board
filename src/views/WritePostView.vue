@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.index">
         <div :class="$style.container">
-            <div :class="$style.contentSection">
+            <div :class="$style.section">
                 <div :class="$style.box">
                     <div :class="$style.titleBox">
                         <div :class="$style.title">게시글 제목</div>
@@ -29,16 +29,11 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
 import { Component, Vue } from "vue-property-decorator";
 import { api } from "@/api/api";
 
-// import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
-
 @Component({
-    components: {
-        // HelloWorld,
-    },
+    components: {},
 })
 export default class WritePostView extends Vue {
     inputTitle: string = "";
@@ -48,14 +43,13 @@ export default class WritePostView extends Vue {
 
     mounted() {
         let checkToken: string = this.$store.state.token;
+
         if (checkToken == undefined) {
             alert("로그인이 필요합니다.");
             this.$router.push("/member/login");
         }
 
         this.inputCategoryValue = (this.$route.query.category as string) ?? "";
-
-        console.log(this.inputCategoryValue);
     }
 
     createPost() {
@@ -124,7 +118,7 @@ export default class WritePostView extends Vue {
 
         @include setCenter;
 
-        .contentSection {
+        .section {
             max-width: 860px;
 
             border: 1px solid black;
@@ -156,7 +150,7 @@ export default class WritePostView extends Vue {
 
                     margin-top: 10px;
 
-                    border: solid 1px rgb(107, 107, 107);
+                    border: solid 1px #6b6b6b;
                     border-radius: 2px;
 
                     outline: none;
@@ -179,7 +173,7 @@ export default class WritePostView extends Vue {
                     margin-top: 20px;
                     margin-bottom: 20px;
 
-                    border: 1px solid rgb(58, 58, 58);
+                    border: 1px solid #3a3a3a;
                     border-radius: 4px;
 
                     @include setCenter;

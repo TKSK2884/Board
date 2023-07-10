@@ -13,26 +13,15 @@
 </template>
 
 <script lang="ts">
-import axios from "axios";
-import { Component, Vue, Watch } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import Header from "./components/Header.vue";
-import { UserInfo } from "./structure/types";
 
 @Component({
     components: {
         Header,
     },
 })
-export default class AppView extends Vue {
-    // @Watch("$store.state.user")
-    // userInfoChanged() {
-    //     console.log("userInfo changed");
-    // }
-    // @Watch("$store.state.token")
-    // tokenChanged() {
-    //     console.log("token changed");
-    // }
-}
+export default class AppView extends Vue {}
 </script>
 <style lang="scss" module>
 .container {
