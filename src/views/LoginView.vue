@@ -103,7 +103,7 @@ export default class LoginView extends Vue {
             border: none;
             border-radius: 10px;
 
-            box-shadow: 0px 0px 1px 0px rgb(87, 87, 87);
+            box-shadow: 0px 0px 1px 0px #575757;
 
             @include setCenter;
 
