@@ -5,7 +5,7 @@
 
 ## Project Demo
 
-https://board (highground.kr)
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49f8d204-90c5-4fdb-9896-d1fda356a6cb/Untitled.png)
 
 ## Project setup
 
