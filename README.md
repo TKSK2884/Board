@@ -5,7 +5,7 @@
 
 ## Project Demo
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/49f8d204-90c5-4fdb-9896-d1fda356a6cb/Untitled.png)
+-[라이브 데모] https://board.highground.kr/
 
 ## Project setup
 
