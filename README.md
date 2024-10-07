@@ -1,31 +1,45 @@
-# 게시판 페이지
+# 게시판 프로젝트 (Board)
+사용자들이 글을 작성 할 수있는 게시판 페이지를 개발했습니다.
+## 📄 프로젝트 설명
+- 회원 가입 및 로그인 기능의 구현 데이터베이스 연동을 포함한 프로젝트 입니다.
 
-이 프로젝트는 사용자가 게시글을 작성하고 조회할 수 있는 서비스입니다. 
-공지사항 게시판과 자유게시판으로 구분되어 있으며, 로그인한 사용자는 글을 작성할 수 있습니다. 사용자 편의성을 고려하여 게시판별로 게시글을 쉽게 조회하고 관리할 수 있도록 설계되었습니다.
+## 🚀 프로젝트 데모
+<img src="https://github.com/user-attachments/assets/1faba1fe-b975-4110-acb4-1e7af67e6f8f" width="600px" height="480px">
 
-## Project Demo
-![image](https://github.com/user-attachments/assets/ea6aff3a-00ec-43a9-ad07-cc6f3eb1a60d)
+- [게시판 데모 페이지](https://board.highground.kr/)
 
--[라이브 데모] https://board.highground.kr/
+## 🔧 사용 기술 스택
+Vue 2.0, TypeScript, SCSS
 
-## Project setup
+## 📌 주요 기능
+- **회원가입 및 로그인 기능**:글을 작성하기 위한 회원가입 및 로그인 기능을 구현하였습니다.
+- **게시판 목록**:작성된 글들을 확인 할 수 있으며, 공지사항과 이벤트 게시판으로 분리되어 있습니다.
+- **글 작성**:선택한 게시판에 글을 작성할 수 있습니다.
 
+## 설치 및 실행
+
+### 사전 요구 사항
+- **Node.js** (v14 이상)
+- **npm** 또는 **yarn**
+
+### 설치
+
+1. 저장소를 클론합니다.
 ```
+git clone https://github.com/TKSK2884/bikick.git
+```
+
+2. 의존성을 설치합니다.
+```
+npm install
+# 또는
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-
+3. 개발 서버를 실행합니다.
 ```
-yarn serve
+npm run serve
+# 또는
+yarn run serve
 ```
-
-### Compiles and minifies for production
-
-```
-yarn run build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
+4. 브라우저에서 http://localhost:8080으로 접속하여 확인 할 수 있습니다.
