@@ -4,7 +4,7 @@
 - 회원 가입 및 로그인 기능의 구현 데이터베이스 연동을 포함한 프로젝트 입니다.
 
 ## 🚀 프로젝트 데모
-<img src="https://github.com/user-attachments/assets/1faba1fe-b975-4110-acb4-1e7af67e6f8f" width="600px" height="480px">
+<img src="https://github.com/user-attachments/assets/1faba1fe-b975-4110-acb4-1e7af67e6f8f" width="1024px" height="480px">
 
 - [게시판 데모 페이지](https://board.highground.kr/)
 
