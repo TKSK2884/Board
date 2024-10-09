@@ -113,7 +113,7 @@ export default class ReadPostView extends Vue {
         @include setCenter;
 
         .section {
-            max-width: 920px;
+            max-width: 600px;
 
             margin-top: 40px;
 
@@ -132,7 +132,7 @@ export default class ReadPostView extends Vue {
 
                 padding-bottom: 20px;
 
-                border-bottom: 1px solid rgb(117, 117, 117);
+                border-bottom: 1px solid #757575;
 
                 .info {
                     margin-right: 20px;
