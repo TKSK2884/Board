@@ -4,7 +4,9 @@
             <div :class="$style.linkSection">
                 <div :class="[$style.box, $style.leftBox]">
                     <router-link :to="`/`">
-                        <div :class="$style.link">Main</div>
+                        <div :class="$style.link">
+                            <i class="el-icon-s-home" />
+                        </div>
                     </router-link>
                 </div>
 
@@ -12,7 +14,7 @@
                     <span v-on:click="logout()" v-if="isLoggeIn()" :to="`/`">
                         <div :class="$style.link">Logout</div>
                     </span>
-                    <div :class="$style.coverLink" v-else>
+                    <div :class="$style.cover" v-else>
                         <router-link :to="`/member/login`">
                             <div :class="$style.link">Login</div>
                         </router-link>
@@ -79,9 +81,13 @@ export default class Header extends Vue {
 
             .box.rightBox {
                 justify-content: end;
+
+                > span {
+                    cursor: pointer;
+                }
             }
 
-            .coverLink {
+            .cover {
                 display: flex;
             }
 
@@ -89,6 +95,11 @@ export default class Header extends Vue {
                 padding: 16px 12px;
 
                 font-size: 16px;
+
+                > i {
+                    width: 100%;
+                    height: 100%;
+                }
             }
         }
     }
