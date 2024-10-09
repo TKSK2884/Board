@@ -1,7 +1,6 @@
 <template>
     <div :class="$style.index">
         <div :class="$style.container">
-            <div :class="$style.title">MainPage</div>
             <div :class="$style.linkSection">
                 <router-link
                     :to="{
