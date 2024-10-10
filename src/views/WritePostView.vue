@@ -119,14 +119,14 @@ export default class WritePostView extends Vue {
         @include setCenter;
 
         .section {
-            max-width: 860px;
+            max-width: 660px;
 
             border: 1px solid black;
 
             @include setCenter;
 
             .box {
-                max-width: 800px;
+                max-width: 600px;
 
                 @include setCenter;
 
@@ -161,7 +161,7 @@ export default class WritePostView extends Vue {
                 }
 
                 .content {
-                    width: 720px;
+                    width: 600px;
                     height: 120px;
                 }
 
@@ -172,7 +172,6 @@ export default class WritePostView extends Vue {
 
                     margin-top: 20px;
                     margin-bottom: 20px;
-
                     border: 1px solid #3a3a3a;
                     border-radius: 4px;
 
