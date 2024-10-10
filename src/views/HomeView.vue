@@ -8,6 +8,7 @@
                         query: { category: `notice` },
                     }"
                 >
+                    <div :class="$style.link">공지사항 게시판</div></router-link
                 >
                 <router-link
                     :to="{
@@ -164,6 +165,7 @@ export default class HomeView extends Vue {
                 padding: 32px;
 
                 border: 1px solid rgb(164, 164, 164);
+                border-radius: 20px;
 
                 .title {
                     padding-bottom: 10px;
