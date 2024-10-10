@@ -8,7 +8,6 @@
                         query: { category: `notice` },
                     }"
                 >
-                    <div :class="$style.link">공지사항</div></router-link
                 >
                 <router-link
                     :to="{
