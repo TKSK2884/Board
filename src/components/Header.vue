@@ -2,16 +2,16 @@
     <div :class="$style.index">
         <div :class="$style.container">
             <div :class="$style.linkSection">
-                <div :class="[$style.box, $style.leftBox]">
+                <div :class="$style.left">
                     <router-link :to="`/`">
                         <div :class="$style.link">
-                            <i class="el-icon-s-home" />
+                            <div :class="$style.icon" />
                         </div>
                     </router-link>
                 </div>
 
-                <div :class="[$style.box, $style.rightBox]">
-                    <span v-on:click="logout()" v-if="isLoggeIn()" :to="`/`">
+                <div :class="$style.right">
+                    <span v-if="isLoggeIn()" v-on:click="logout()" :to="`/`">
                         <div :class="$style.link">Logout</div>
                     </span>
                     <div :class="$style.cover" v-else>
@@ -52,20 +52,20 @@ export default class Header extends Vue {
 .index {
     border-bottom: 1px solid #dbdbdb;
 
-    .container {
+    > .container {
         max-width: 1080px;
         height: 80px;
 
         padding: 12px;
+        margin-inline: auto;
 
-        @include setCenter;
-
-        .title {
+        > .title {
             display: inline-block;
         }
 
-        .linkSection {
+        > .linkSection {
             display: flex;
+            align-items: center;
 
             a {
                 text-decoration: none;
@@ -73,13 +73,14 @@ export default class Header extends Vue {
                 color: black;
             }
 
-            .box {
+            > .left,
+            > .right {
                 width: 50%;
 
                 display: flex;
             }
 
-            .box.rightBox {
+            > .right {
                 justify-content: end;
 
                 > span {
@@ -92,13 +93,19 @@ export default class Header extends Vue {
             }
 
             .link {
-                padding: 16px 12px;
-
                 font-size: 16px;
 
-                > i {
-                    width: 100%;
-                    height: 100%;
+                padding-block: 16px;
+                padding-inline: 12px;
+
+                > .icon {
+                    width: 16px;
+                    height: 16px;
+
+                    background-image: url("@/assets/icon/house-solid.svg");
+                    background-position: center center;
+                    background-repeat: no-repeat;
+                    background-size: contain;
                 }
             }
         }
