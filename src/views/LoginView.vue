@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.index">
         <div :class="$style.container">
-            <div :class="$style.coverBox">
+            <div :class="$style.cover">
                 <div :class="$style.title">로그인</div>
                 <div :class="$style.box">
                     <input
@@ -16,9 +16,7 @@
                         type="password"
                         placeholder="비밀번호 입력"
                     />
-                    <div v-on:click="tryLogin" :class="$style.button">
-                        로그인
-                    </div>
+                    <div @click="tryLogin" :class="$style.button">로그인</div>
                 </div>
             </div>
         </div>
@@ -40,6 +38,7 @@ export default class LoginView extends Vue {
         if (this.inputID == "") {
             return alert("아이디를 입력해주세요");
         }
+
         if (this.inputPassword == "") {
             return alert("비밀번호를 입력해주세요");
         }
@@ -85,46 +84,41 @@ export default class LoginView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
-    .container {
+    > .container {
         max-width: 1080px;
 
         padding: 20px 0px;
+        margin-inline: auto;
 
-        @include setCenter;
-
-        .coverBox {
+        > .cover {
             max-width: 360px;
 
             padding: 30px;
+            margin-inline: auto;
 
             border: none;
             border-radius: 10px;
 
             box-shadow: 0px 0px 1px 0px #575757;
 
-            @include setCenter;
-
-            .title {
-                padding: 20px 0px;
-
+            > .title {
                 font-size: 24px;
                 font-weight: bold;
-
                 text-align: center;
+
+                padding: 20px 0px;
             }
 
-            .box {
+            > .box {
                 max-width: 300px;
+
+                margin-inline: auto;
 
                 display: flex;
                 flex-direction: column;
 
-                @include setCenter;
-
-                .input {
+                > .input {
                     padding: 8px;
 
                     margin-top: 10px;
@@ -137,15 +131,15 @@ export default class LoginView extends Vue {
                     outline: none;
                 }
 
-                .button {
+                > .button {
                     padding: 6px 18px;
-
                     margin-top: 20px;
+                    margin-inline: auto;
 
-                    border: 1px solid rgb(58, 58, 58);
+                    border: 1px solid #3a3a3a;
                     border-radius: 4px;
 
-                    @include setCenter;
+                    cursor: pointer;
                 }
             }
         }
