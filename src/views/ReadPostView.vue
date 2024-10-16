@@ -2,13 +2,13 @@
     <div :class="$style.index">
         <div :class="$style.container">
             <div :class="$style.section">
-                <div :class="$style.coverContent" v-if="getPostAvailable()">
+                <template v-if="getPostAvailable()">
                     <div :class="$style.title">제목: {{ getPost.title }}</div>
                     <div :class="$style.box">
                         <div :class="$style.info">
                             작성자: {{ getPost.name }}
                         </div>
-                        <div :class="$style.info">||</div>
+                        <div :class="$style.info">|</div>
                         <div :class="$style.info">
                             작성 시간: {{ getTime() }}
                         </div>
@@ -16,7 +16,7 @@
                     <div :class="$style.content">
                         {{ getPost.content }}
                     </div>
-                </div>
+                </template>
             </div>
         </div>
     </div>
@@ -102,51 +102,48 @@ export default class ReadPostView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
 .index {
     width: 100%;
     height: auto;
 
-    .container {
+    > .container {
         max-width: 1080px;
 
-        @include setCenter;
+        margin-inline: auto;
 
-        .section {
+        > .section {
             max-width: 600px;
 
             margin-top: 40px;
+            margin-inline: auto;
 
-            @include setCenter;
-
-            .title {
-                margin-bottom: 20px;
-
+            > .title {
                 font-size: 24px;
                 font-weight: bold;
+
+                margin-bottom: 20px;
             }
 
-            .box {
+            > .box {
+                padding-bottom: 20px;
+
                 display: flex;
                 align-items: center;
 
-                padding-bottom: 20px;
-
                 border-bottom: 1px solid #757575;
 
-                .info {
+                > .info {
                     margin-right: 20px;
                 }
             }
 
-            .content {
-                margin-top: 20px;
-                margin-bottom: 20px;
-
+            > .content {
                 font-size: 16px;
                 line-height: 24px;
-
                 word-break: break-all;
+
+                margin-top: 20px;
+                margin-bottom: 20px;
             }
         }
     }
