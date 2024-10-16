@@ -3,7 +3,7 @@
         <div :class="$style.container">
             <div :class="$style.section">
                 <div :class="$style.title">{{ getBoardCategory() }}</div>
-                <div v-if="getIsTokenUseable()" :class="$style.coverLink">
+                <div v-if="getIsTokenUseable()" :class="$style.cover">
                     <router-link
                         :to="`/board/write?category=${getWriteCategory()}`"
                     >
@@ -12,7 +12,7 @@
                 </div>
                 <div
                     v-for="(post, index) in contentsArray"
-                    :class="$style.contentSection"
+                    :class="$style.contents"
                     :key="index"
                 >
                     <router-link :to="`/board/read?id=${getPostID(post)}`">
@@ -30,11 +30,11 @@
                         </div>
                     </router-link>
                 </div>
-                <div :class="$style.pageBox">
+                <div :class="$style.page">
                     <div
                         v-for="number in getTotalPage()"
                         :key="number"
-                        v-on:click="pageChange(number)"
+                        @click="pageChange(number)"
                         :class="$style.button"
                     >
                         {{ number }}
@@ -157,27 +157,24 @@ export default class BoardView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
-    .container {
+    > .container {
         max-width: 1080px;
 
         padding: 20px 0px;
+        margin-inline: auto;
 
-        @include setCenter;
-
-        .section {
-            .title {
+        > .section {
+            > .title {
                 margin-bottom: 10px;
 
                 text-align: center;
             }
 
-            .coverLink {
+            > .cover {
                 max-width: 80px;
 
-                @include setCenter;
+                margin-inline: auto;
             }
 
             a {
@@ -186,43 +183,45 @@ export default class BoardView extends Vue {
                 color: black;
             }
 
-            .contentSection {
+            > .contents {
                 max-width: 980px;
 
-                @include setCenter;
+                margin-inline: auto;
 
-                .box {
-                    display: flex;
+                > a {
+                    > .box {
+                        display: flex;
 
-                    margin: 10px 0px;
+                        margin: 10px 0px;
 
-                    border-bottom: 1px solid rgb(203, 202, 202);
+                        border-bottom: 1px solid #cbcaca;
 
-                    .content {
-                        width: calc(100% / 3);
+                        > .content {
+                            width: calc(100% / 3);
 
-                        padding: 10px;
+                            padding: 10px;
 
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
-                    }
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
 
-                    .right {
-                        text-align: right;
+                        > .right {
+                            text-align: right;
+                        }
                     }
                 }
             }
 
-            .pageBox {
+            > .page {
                 display: flex;
                 justify-content: center;
 
-                .button {
+                > .button {
                     margin-right: 10px;
                 }
 
-                .right {
+                > .right {
                     text-align: right;
                 }
             }
