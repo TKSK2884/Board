@@ -39,7 +39,6 @@
 <script lang="ts">
 import { api } from "@/api/api";
 import { UserInfo } from "@/structure/types";
-import axios from "axios";
 import { Component, Vue, Watch } from "vue-property-decorator";
 
 @Component({
@@ -114,15 +113,12 @@ export default class HomeView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
     .container {
         max-width: 1080px;
 
         padding: 20px 0px;
-
-        @include setCenter;
+        margin-inline: auto;
 
         .title {
             text-align: center;
@@ -148,12 +144,10 @@ export default class HomeView extends Vue {
 
         .userSection {
             max-width: 320px;
-
-            margin-top: 20px;
-
             text-align: center;
 
-            @include setCenter;
+            margin-top: 20px;
+            margin-inline: auto;
 
             a {
                 text-decoration: none;
@@ -164,7 +158,7 @@ export default class HomeView extends Vue {
             .box {
                 padding: 32px;
 
-                border: 1px solid rgb(164, 164, 164);
+                border: 1px solid #a4a4a4;
                 border-radius: 20px;
 
                 .title {
