@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.index">
         <div :class="$style.container">
-            <div :class="$style.coverBox">
+            <div :class="$style.cover">
                 <div :class="$style.title">회원가입</div>
                 <div :class="$style.box">
                     <input
@@ -34,7 +34,7 @@
                         type="text"
                         placeholder="닉네임 입력"
                     />
-                    <div v-on:click="createAccount" :class="$style.button">
+                    <div @click="createAccount" :class="$style.button">
                         회원 가입
                     </div>
                 </div>
@@ -45,7 +45,6 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-
 import { api } from "@/api/api";
 
 @Component({
@@ -62,9 +61,11 @@ export default class JoinView extends Vue {
         if (this.inputID == "") {
             return alert("아이디를 입력해주세요");
         }
+
         if (this.inputPassword == "") {
             return alert("비밀번호를 입력해주세요");
         }
+
         if (this.inputCheckPassword != this.inputPassword) {
             return alert("비밀번호가 일치하지 않습니다");
         }
@@ -72,6 +73,7 @@ export default class JoinView extends Vue {
         if (this.inputEmail == "") {
             return alert("이메일을 입력해주세요");
         }
+
         if (this.inputNickname == "") {
             return alert("닉네임을 입력해주세요");
         }
@@ -103,14 +105,17 @@ export default class JoinView extends Vue {
             alert("중복되는 아이디 입니다.");
             return;
         }
+
         if (errorCode == 204) {
             alert("중복되는 이메일 입니다.");
             return;
         }
+
         if (errorCode == 205) {
             alert("중복되는 닉네임 입니다.");
             return;
         }
+
         alert("가입에 실패했습니다");
     }
     joinSuccess(res: any) {
@@ -122,68 +127,64 @@ export default class JoinView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
-    .container {
+    > .container {
         max-width: 1080px;
 
         padding: 20px 0px;
+        margin-inline: auto;
 
-        @include setCenter;
-
-        .coverBox {
+        > .cover {
             max-width: 360px;
 
             padding: 30px;
+            margin-inline: auto;
 
             border: none;
             border-radius: 10px;
 
             box-shadow: 0px 0px 1px 0px #575757;
 
-            @include setCenter;
-
-            .title {
-                padding: 20px 0px;
-
+            > .title {
                 font-size: 24px;
                 font-weight: bold;
-
                 text-align: center;
+
+                padding: 20px 0px;
             }
 
-            .box {
+            > .box {
                 max-width: 300px;
+
+                margin-inline: auto;
 
                 display: flex;
                 flex-direction: column;
 
-                @include setCenter;
-
-                .input {
+                > .input {
                     padding: 8px;
 
                     margin-top: 10px;
                     margin-left: 10px;
 
                     border: none;
-                    border-bottom: solid 1px rgb(107, 107, 107);
+                    border-bottom: solid 1px #6b6b6b;
                     border-radius: 2px;
 
                     outline: none;
                 }
 
-                .button {
+                > .button {
                     padding: 6px 18px;
 
                     margin-top: 16px;
                     margin-bottom: 16px;
+                    margin-inline: auto;
 
-                    border: 1px solid rgb(58, 58, 58);
+                    border: 1px solid #3a3a3a;
                     border-radius: 4px;
 
-                    @include setCenter;
+                    cursor: pointer;
                 }
             }
         }

@@ -11,10 +11,10 @@
                 </div>
 
                 <div :class="$style.right">
-                    <span v-if="isLoggeIn()" v-on:click="logout()" :to="`/`">
+                    <span v-if="isLoggeIn()" @click="logout()" :to="`/`">
                         <div :class="$style.link">Logout</div>
                     </span>
-                    <div :class="$style.cover" v-else>
+                    <div v-else :class="$style.cover">
                         <router-link :to="`/member/login`">
                             <div :class="$style.link">Login</div>
                         </router-link>
@@ -47,8 +47,6 @@ export default class Header extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
     border-bottom: 1px solid #dbdbdb;
 

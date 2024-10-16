@@ -3,13 +3,13 @@
         <div :class="$style.container">
             <div :class="$style.section">
                 <div :class="$style.box">
-                    <div :class="$style.titleBox">
+                    <div :class="$style.cover">
                         <div :class="$style.title">게시글 제목</div>
                     </div>
 
                     <input
                         v-model="inputTitle"
-                        :class="[$style.input, $style.postTitle]"
+                        :class="[$style.input, $style.post]"
                         type="text"
                         placeholder="게시글 제목 입력"
                     />
@@ -19,7 +19,7 @@
                         :class="[$style.input, $style.content]"
                         placeholder="게시글 작성"
                     />
-                    <div v-on:click="createPost()" :class="$style.button">
+                    <div @click="createPost()" :class="$style.button">
                         게시글 작성
                     </div>
                 </div>
@@ -56,9 +56,11 @@ export default class WritePostView extends Vue {
         if (this.inputTitle.trim() == "") {
             return alert("제목을 입력해주세요.");
         }
+
         if (this.inputCategoryValue == "") {
             return alert("게시판을 선택해주세요.");
         }
+
         if (this.inputContent.trim() == "") {
             return alert("내용을 입력해주세요.");
         }
@@ -108,44 +110,39 @@ export default class WritePostView extends Vue {
 </script>
 
 <style lang="scss" module>
-@import "@/assets/utils.scss";
-
 .index {
-    .container {
+    > .container {
         max-width: 1080px;
 
         padding: 20px 0px;
+        margin-inline: auto;
 
-        @include setCenter;
-
-        .section {
+        > .section {
             max-width: 660px;
+
+            margin-inline: auto;
 
             border: 1px solid black;
 
-            @include setCenter;
-
-            .box {
+            > .box {
                 max-width: 600px;
 
-                @include setCenter;
+                margin-inline: auto;
 
-                .titleBox {
+                > .cover {
                     display: flex;
                     justify-content: space-between;
-
-                    .radio {
-                        display: flex;
-                        align-items: center;
-                    }
                 }
-                .title {
+
+                > .cover > .title,
+                > .title {
                     padding: 12px 0px;
 
                     font-size: 16px;
                     font-weight: bold;
                 }
-                .input {
+
+                > .input {
                     padding: 8px;
 
                     margin-top: 10px;
@@ -156,26 +153,24 @@ export default class WritePostView extends Vue {
                     outline: none;
                 }
 
-                .postTitle {
+                > .post {
                     width: 360px;
                 }
 
-                .content {
+                > .content {
                     width: 600px;
                     height: 120px;
                 }
 
-                .button {
+                > .button {
                     max-width: 120px;
 
                     padding: 8px 18px;
+                    margin-block: 20px;
+                    margin-inline: auto;
 
-                    margin-top: 20px;
-                    margin-bottom: 20px;
                     border: 1px solid #3a3a3a;
                     border-radius: 4px;
-
-                    @include setCenter;
                 }
             }
         }
